@@ -40,8 +40,9 @@ if (config.use_env_variable) {
 // db.sequelize = sequelize;
 // db.Sequelize = Sequelize;
 
-const connectDB = () => {
-  return sequelize.authenticate();
+const connectDB =async () => {
+  await sequelize.authenticate();
+  await sequelize.sync({ force: true });
 }
 
 

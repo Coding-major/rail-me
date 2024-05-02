@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "mustey",
-    "database": "postgres",
+    "database": "rail-me",
     "host": "localhost",
     "port": 5432,
     "dialect": "postgres"

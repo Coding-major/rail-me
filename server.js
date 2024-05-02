@@ -1,15 +1,13 @@
 const express = require('express')
 const app = express()
-const {sequelize, connectDB} = require('./connect/index')
-const { DataTypes} = require("sequelize")
+const {connectDB} = require('./connect/index')
 
-const User = sequelize.define("User", {
-    thename: {
-        type: DataTypes.STRING
-    }
-})
+//middlewares
+const authRouter = require("./routes/authRoute")
+app.use(express.json())
 
 
+app.use("/", authRouter)
 
 
 
