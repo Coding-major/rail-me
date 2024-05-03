@@ -1,15 +1,21 @@
+require("express-async-errors")
+
 const express = require('express')
 const app = express()
 const {connectDB} = require('./connect/index')
 
 //middlewares
 const authRouter = require("./routes/authRoute")
+
+const errorHandlerMiddleware = require('./middlewares/errorHandler')
 app.use(express.json())
 
 
 app.use("/", authRouter)
 
 
+
+app.use(errorHandlerMiddleware)
 
 const PORT = process.env.PORT || 5000
 

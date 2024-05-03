@@ -1,13 +1,16 @@
 const { where } = require("sequelize")
 const User = require("../models/userModel")
+const { badRequest, customError } = require('../errors/indexErrors')
+const { StatusCodes } = require("http-status-codes")
 
-const login = async (req, res) => {
+const register = async (req, res) => {
     const {email, firstName, lastName, phoneNumber, password} = req.body
 
     // const alreadyExist = await User.findOne({where: {email: email}})
 
     // if (alreadyExist) {
-    //     throw new Error("user already exist")
+    //     throw new badRequest("user already eeexist")
+    //     //return res.status(StatusCodes.BAD_REQUEST).json({msg: "user alteardy exist"})
     // }
 
     
@@ -19,7 +22,7 @@ const login = async (req, res) => {
         password: password
     })
 
-    res.json(user)
+    res.status(StatusCodes.CREATED).json({msg: user})
 }
 
-module.exports = {login}
+module.exports = {register}
