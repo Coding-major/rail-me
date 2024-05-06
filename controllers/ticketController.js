@@ -1,8 +1,4 @@
-const postNumbers = async (req, res) => {
-
-}
-
-const listOFNumbers = async (req, res) => {
+const availableBuses = async (req, res) => {
 
 }
 
