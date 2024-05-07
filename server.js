@@ -6,12 +6,14 @@ const {connectDB} = require('./connect/index')
 
 //middlewares
 const authRouter = require("./routes/authRoute")
+const busRouter = require('./routes/ticketRoute')
 
 const errorHandlerMiddleware = require('./middlewares/errorHandler')
 app.use(express.json())
 
 
 app.use("/", authRouter)
+app.use('/', busRouter)
 
 
 

@@ -42,7 +42,7 @@ if (config.use_env_variable) {
 
 const connectDB =async () => {
   await sequelize.authenticate();
-  await sequelize.sync({ force: true });
+  // await sequelize.sync({ force: true });
 }
 
 

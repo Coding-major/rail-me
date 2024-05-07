@@ -6,7 +6,10 @@ const Bus = sequelize.define('Bus', {
         type: DataTypes.STRING
     },
 
-    available: true
+    available: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }
 })
 
 module.exports = Bus

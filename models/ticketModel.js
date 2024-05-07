@@ -1,11 +1,11 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../connect/index' )
-const SeatNumber = require('./seatNumber')
+const { Seat } = require("../models/index")
 
 const Ticket = sequelize.define('Ticket', {
     ticketID: DataTypes.STRING,
 })
 
-Ticket.belongsTo(SeatNumber)
+Ticket.belongsTo(Seat)
 
 module.exports = Ticket

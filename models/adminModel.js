@@ -1,7 +1,7 @@
 const {DataTypes} = require("sequelize")
 const {sequelize} = require("../connect/index")
 
-const User = sequelize.define("User", {
+const Admin = sequelize.define("User", {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -60,4 +60,4 @@ const User = sequelize.define("User", {
     }
 })
 
-module.exports = User
+module.exports = Admin
