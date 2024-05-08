@@ -35,12 +35,27 @@
 //     }
 //   }
 
-const numbersArray = [1,3,4,5]
-const seatPromises = numbersArray.map(newSeat => {
-    const seatObject = {newSeat}
-    seatObject.poll = "kite"
-    console.log(seatObject);
-    // seatObject = {newSeat}
-    // seatObject.BusId = bus.id
-    // return Seat.create()
-} )
+// const numbersArray = [1,3,4,5]
+// const seatPromises = numbersArray.map(newSeat => {
+//     const seatObject = {newSeat}
+//     seatObject.poll = "kite"
+//     console.log(seatObject);
+//     // seatObject = {newSeat}
+//     // seatObject.BusId = bus.id
+//     // return Seat.create()
+// } )
+
+// try {
+//     const name = await User.create({name: "musty"})
+//     const game = await User.create({game: "musty"})
+//     const job = await User.create({job: "musty"})
+//     const action = await User.create({action: "musty"})
+// } catch (error) {
+//     resizeBy.json({msg: error})
+// }
+
+const { v4: uuidv4 } = require('uuid');
+const uuid = uuidv4()
+;
+
+console.log(uuid);

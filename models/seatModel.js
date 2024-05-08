@@ -2,7 +2,7 @@ const { sequelize } = require('../connect/index')
 const { DataTypes, indexes } = require('sequelize')
 const Bus = require('./busModel')
 
-const Seat = sequelize.define('SeatNumber', {
+const Seat = sequelize.define('Seat', {
     seatNumber: {
         type: DataTypes.INTEGER,
     },
@@ -15,7 +15,7 @@ const Seat = sequelize.define('SeatNumber', {
 {
     indexes: [{
         unique: 'compositeIndex',
-        fields: ['value', 'BusId']
+        fields: ['seatNumber', 'BusId']
     }]
 }
 )

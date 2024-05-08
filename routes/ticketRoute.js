@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const { addBus, availableBuses } = require('../controllers/ticketController')
+const { addBus, updateBusSeat, availableBuses} = require('../controllers/ticketController')
 
-router.post('/bus', addBus)
-router.get('/bus', availableBuses)
+router.route('/bus').post(addBus).get(availableBuses)
+router.patch('/:id', updateBusSeat)
 
 module.exports = router

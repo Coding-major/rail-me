@@ -1,5 +1,5 @@
 const { where } = require("sequelize")
-const User = require("../models/userModel")
+const User = require("../models/adminModel")
 const { badRequest, customError, notFound, unAuthourized } = require('../errors/indexErrors')
 const { StatusCodes } = require("http-status-codes")
 const { hash, comparePassword } = require('../utils/bcrypt')
