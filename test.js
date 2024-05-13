@@ -54,8 +54,55 @@
 //     resizeBy.json({msg: error})
 // }
 
-const { v4: uuidv4 } = require('uuid');
-const uuid = uuidv4()
-;
+// const { v4: uuidv4 } = require('uuid');
+// const uuid = uuidv4()
+// ;
 
-console.log(uuid);
+// console.log(uuid);
+
+import React, { useState, useEffect } from 'react';
+
+function BusDetails({ match }) {
+  const [bus, setBus] = useState(null);
+  const busId = match.params.id;
+
+  useEffect(() => {
+    // Define a function to fetch data from the backend
+    async function fetchBusDetails() {
+      try {
+        // Fetch data from the backend using the bus/:id endpoint
+        const response = await fetch(`http://your-backend-url/bus/${busId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch bus details');
+        }
+        const data = await response.json();
+        setBus(data);
+      } catch (error) {
+        console.error('Error fetching bus details:', error);
+      }
+    }
+
+    // Call the fetchBusDetails function when the component mounts
+    fetchBusDetails();
+
+    // Clean up function (optional)
+    return () => {
+      // Any cleanup code if needed
+    };
+  }, [busId]);
+
+  if (!bus) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h2>Bus Details</h2>
+      <p>Bus ID: {bus.id}</p>
+      <p>Bus Name: {bus.name}</p>
+      {/* Display other bus details as needed */}
+    </div>
+  );
+}
+
+export default BusDetails;
