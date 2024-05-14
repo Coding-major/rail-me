@@ -20,7 +20,7 @@ const Seat = sequelize.define('Seat', {
 }
 )
 
-Bus.hasMany(Seat)
+Bus.hasMany(Seat, {onDelete: "CASCADE"})
 Seat.belongsTo(Bus)
 
 module.exports = Seat
