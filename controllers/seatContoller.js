@@ -70,6 +70,22 @@ const deleteSeat = async(req, res) => {
 }
 
 const seatUnavailable = async (req, res) => {
-    
+    const { value, seatNumber } = req.body
+
+    const seat = await Seat.update(
+        { available: value },
+        {
+            where: {
+                seatNumber
+            }
+        }
+)
+
+    if (!seat) {
+        throw new notFound('seat does not exist')
+    }
+
+    res.status(StatusCodes.OK).json({msg: "successfully updated"})
+
 }
 module.exports = { createSeat, deleteSeat }
