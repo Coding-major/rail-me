@@ -7,9 +7,9 @@ const Seat = sequelize.define('Seat', {
         type: DataTypes.INTEGER,
     },
 
-    isVerified: {
+    available: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false // Set default value to false
+        defaultValue: true // Set default value to false
       }
 },
 {

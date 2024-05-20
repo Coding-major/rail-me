@@ -68,4 +68,8 @@ const deleteSeat = async(req, res) => {
     }
     res.status(StatusCodes.OK).json({msg: `successfully deleted seatNumber ${seatNumber}`})
 }
+
+const seatUnavailable = async (req, res) => {
+    
+}
 module.exports = { createSeat, deleteSeat }
